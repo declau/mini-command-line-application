@@ -1,0 +1,5 @@
+Essa aplicação te como objetivo fazer duas ações.
+
+ - Receber um endereço web 
+ - Procurar o IP Publico desse endereço web
+ - Na segunda ação ele vai devolver o nome do servidor onde o endereço esta hospedado. 
