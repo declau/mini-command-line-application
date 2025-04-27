@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"linha-de-comando/Aplicação de Linha de Comando/app"
+	"linha-de-comando/app"
 	"log"
 	"os"
 )
@@ -11,8 +11,8 @@ func main() {
 	fmt.Println("Ponto de Partida")
 
 	aplicacao := app.Gerar()
-	erro := aplicacao.Run(os.Args)
-	if erro != nil {
+	if erro := aplicacao.Run(os.Args); erro != nil {
 		log.Fatal(erro)
 	}
+
 }
