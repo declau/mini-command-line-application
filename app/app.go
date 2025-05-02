@@ -14,19 +14,30 @@ func Gerar() *cli.App {
 	app.Name = "Aplicação de linha de comando"
 	app.Usage = "Busca IPs e nomes de Servidores na internet"
 
+	// Flags
+	flags := []cli.Flag{
+		cli.StringFlag{
+			Name:  "host",
+			Value: "biodoc.com.br",
+		},
+	}
+
 	// Adicionando os camondos
 	app.Commands = []cli.Command{
+		// Comando 1 buscar IPs
 		{
 			Name:  "ip",
 			Usage: "Busca IPs de endereços na internet",
 			// Flag é um slice
-			Flags: []cli.Flag{
-				cli.StringFlag{
-					Name:  "host",
-					Value: "biodoc.com.br",
-				},
-			},
+			Flags:  flags,
 			Action: buscarIps,
+		},
+		// Comando 2 busca por servidores
+		{
+			Name:   "servidores",
+			Usage:  "Busca pelo nome dos servidores",
+			Flags:  flags,
+			Action: buscarServidores,
 		},
 	}
 
@@ -46,4 +57,19 @@ func buscarIps(c *cli.Context) {
 	for _, ip := range ips {
 		fmt.Println(ip)
 	}
+}
+
+func buscarServidores(c *cli.Context) {
+	host := c.String("host")
+
+	// Chamando um função do pacote NET para retornar os servidores
+	servidores, erro := net.LookupNS(host) // NS -> name server
+	if erro != nil {
+		log.Fatal(erro)
+	}
+
+	for _, servidor := range servidores {
+		fmt.Println(servidor.Host)
+	}
+
 }
