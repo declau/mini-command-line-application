@@ -8,5 +8,8 @@ func Gerar() *cli.App {
 	app.Name = "Aplicação de linha de comando"
 	app.Usage = "Busca IPs e nomes de Servidores na internet"
 
+	// Adicionando os camondos
+	app.Commands
+
 	return app
 }
