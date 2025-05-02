@@ -1,5 +1,9 @@
 Essa aplicação te como objetivo fazer duas ações.
 
- - Receber um endereço web 
- - Procurar o IP Publico desse endereço web
+ - Receber um endereço web.
+ - Procurar o IP Publico desse endereço web.
  - Na segunda ação ele vai devolver o nome do servidor onde o endereço esta hospedado. 
+
+
+ - Exemplo de comando para rodar: "go run main.go ip --parametro1 valor1 --parametro2 valor2"
+   sendo --parametro -> nossa Flag(que seria o host que esta no -> app.go -> app.Commands dentro do código).

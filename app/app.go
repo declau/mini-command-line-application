@@ -9,7 +9,19 @@ func Gerar() *cli.App {
 	app.Usage = "Busca IPs e nomes de Servidores na internet"
 
 	// Adicionando os camondos
-	app.Commands
+	app.Commands = []cli.Command{
+		{
+			Name:  "ip",
+			Usage: "Busca IPs de endereços na internet",
+			// Flag é um slice
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "host",
+					Value: "biodoc.com.br",
+				},
+			},
+		},
+	}
 
 	return app
 }
